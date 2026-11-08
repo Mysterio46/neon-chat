@@ -1,0 +1,181 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@source "../node_modules/streamdown/dist/*.js";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Neon design system — a deep midnight canvas lit by a cobalt glow.
+ * All colors are oklch. The app is dark-only.
+ */
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-composer: var(--composer);
+  --color-composer-foreground: var(--composer-foreground);
+  --color-bubble: var(--bubble);
+  --color-bubble-foreground: var(--bubble-foreground);
+  --color-glow: var(--glow);
+  --color-neon: var(--neon);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.155 0.006 265);
+  --foreground: oklch(0.95 0.005 260);
+  --card: oklch(0.21 0.006 265);
+  --card-foreground: oklch(0.95 0.005 260);
+  --popover: oklch(0.22 0.007 265);
+  --popover-foreground: oklch(0.95 0.005 260);
+  --primary: oklch(0.72 0.15 245);
+  --primary-foreground: oklch(0.16 0.03 260);
+  --secondary: oklch(0.26 0.007 265);
+  --secondary-foreground: oklch(0.95 0.005 260);
+  --muted: oklch(0.25 0.006 265);
+  --muted-foreground: oklch(0.68 0.012 260);
+  --accent: oklch(0.27 0.008 265);
+  --accent-foreground: oklch(0.97 0.004 260);
+  --destructive: oklch(0.66 0.2 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.15 245 / 60%);
+  --chart-1: oklch(0.72 0.15 245);
+  --chart-2: oklch(0.78 0.14 200);
+  --chart-3: oklch(0.6 0.2 265);
+  --chart-4: oklch(0.82 0.12 85);
+  --chart-5: oklch(0.7 0.18 20);
+  --sidebar: oklch(0.2 0.005 265);
+  --sidebar-foreground: oklch(0.92 0.005 260);
+  --sidebar-primary: oklch(0.72 0.15 245);
+  --sidebar-primary-foreground: oklch(0.16 0.03 260);
+  --sidebar-accent: oklch(0.26 0.007 265);
+  --sidebar-accent-foreground: oklch(0.97 0.004 260);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-ring: oklch(0.72 0.15 245 / 60%);
+
+  --composer: oklch(0.225 0.006 265);
+  --composer-foreground: oklch(0.95 0.005 260);
+  --bubble: oklch(0.29 0.03 258);
+  --bubble-foreground: oklch(0.97 0.004 260);
+  --glow: oklch(0.42 0.17 264);
+  --neon: oklch(0.82 0.15 215);
+
+  --glow-purple: oklch(0.45 0.22 305);
+  --glow-red: oklch(0.5 0.21 22);
+  --gradient-canvas:
+    radial-gradient(
+      ellipse 45% 45% at 38% 50%,
+      color-mix(in oklab, var(--glow-purple) 70%, transparent) 0%,
+      color-mix(in oklab, var(--glow-purple) 25%, transparent) 45%,
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 45% 45% at 64% 60%,
+      color-mix(in oklab, var(--glow-red) 60%, transparent) 0%,
+      color-mix(in oklab, var(--glow-red) 22%, transparent) 45%,
+      transparent 75%
+    );
+  --gradient-neon: linear-gradient(120deg, var(--neon), var(--primary) 55%, var(--glow));
+  --shadow-composer: 0 18px 50px -18px oklch(0 0 0 / 70%), 0 0 0 1px oklch(1 0 0 / 4%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 40%, transparent);
+  }
+}
+
+@layer components {
+  .neon-canvas {
+    background-color: var(--background);
+    background-image: var(--gradient-canvas);
+    background-repeat: no-repeat;
+    transition: background-size 600ms ease;
+  }
+
+  .neon-canvas[data-active="true"] {
+    background-image:
+      radial-gradient(
+        ellipse 50% 40% at 35% 115%,
+        color-mix(in oklab, var(--glow-purple) 50%, transparent) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 65% 115%,
+        color-mix(in oklab, var(--glow-red) 45%, transparent) 0%,
+        transparent 70%
+      );
+  }
+
+  .neon-text {
+    background-image: var(--gradient-neon);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .composer-shell {
+    background-color: var(--composer);
+    color: var(--composer-foreground);
+    box-shadow: var(--shadow-composer);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(1 0 0 / 14%) transparent;
+  }
+}
